@@ -1,0 +1,32 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: app1
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: config-server-eureka
+      username: admin
+      password: admin
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://admin:admin@localhost:8761/eureka
+  instance:
+      prefer-ip-address: true
+      instance-id: ${spring.cloud.client.ip-address}:${server.port}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  info:
+    git:
+      mode: full

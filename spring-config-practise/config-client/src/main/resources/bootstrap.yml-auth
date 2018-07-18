@@ -1,0 +1,9 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: app1
+  cloud:
+    config:
+      uri: http://localhost:8080
+config1: config-bootstrap
